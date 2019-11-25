@@ -1,25 +1,24 @@
 package com.ephemeralin.sigma.domain;
 
-public class Issue {
-    private final long id;
-    private final String summary;
-    private final String description;
+import lombok.Data;
 
-    public Issue(long id, String summary, String description) {
-        this.id = id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
+@Entity
+public class Issue {
+
+    private @Id @GeneratedValue Long id;
+    private String summary;
+    private String description;
+
+    public Issue() {
+    }
+
+    public Issue(String summary, String description) {
         this.summary = summary;
         this.description = description;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public String getDescription() {
-        return description;
     }
 }
